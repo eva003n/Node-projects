@@ -3,13 +3,6 @@
 import commandTable from "./commands.js";
 import { showHelp } from "./handlers.js";
 
-// tokenize each command and store in array
-const tokenizer = (args) => {
-  return args.slice(2); // node[0], index.js[1], ...[2]
-};
-
-const tokens = tokenizer(process.argv);
-
 const dispatch = async (parsed) => {
   try {
     // if the command doesnt exist show usage help
@@ -33,7 +26,7 @@ const parseArguments = async (tokens) => {
   if (!Array.isArray(tokens)) return showHelp();
   try {
     const commandArguments = {
-      command:  tokens[0],
+      command: tokens[0],
       subCommands: [],
       flags: {},
     };
@@ -60,8 +53,17 @@ const parseArguments = async (tokens) => {
 
     await dispatch(commandArguments);
   } catch (error) {
-    console.error(`Error occured while parsing arguments ${error.message}`)
+    console.error(`Error occured while parsing arguments ${error.message}`);
   }
 };
 
-parseArguments();
+// tokenize each command and store in array
+const tokenizer = async (args) => {
+  try {
+    await parseArguments(args.slice(2)); // node[0], index.js[1], ...[2]
+  } catch (error) {
+    console.error(`Error occurred during tokenization: ${error.message}`);
+  }
+};
+
+tokenizer(process.argv);
