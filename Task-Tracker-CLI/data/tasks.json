@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Learn nodejs ",
+    "description": "Node for backend development",
+    "status": "todo",
+    "createdAt": "2025-12-26T19:48:09.943Z",
+    "upDatedAt": "2025-12-26T19:48:09.943Z"
+  },
+  {
+    "id": "78eab337-76de-46ac-b1b3-41f4839df2ee",
+    "title": "Learn Backend dev",
+    "description": "Learn backend engineering",
+    "status": "in-progress",
+    "createdAt": "2025-12-26T21:04:58.813Z",
+    "upDatedAt": "2025-12-26T21:04:58.813Z"
+  },
+  {
+    "id": "4ef973cb-da73-40f4-9e53-6a89e6b6983a",
+    "description": "Watch movies",
+    "status": "done",
+    "createdAt": "2025-12-29T12:30:39.792Z",
+    "updatedAt": "2025-12-29T12:30:39.792Z"
+  }
+]
