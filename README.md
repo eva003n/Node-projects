@@ -1,3 +1,3 @@
-### Project URL
-[Roadmap.sh projects](https://roadmap.sh/projects/task-tracker)
+### Roadmap.sh project
+[Project URL](https://roadmap.sh/projects/task-tracker)
 
