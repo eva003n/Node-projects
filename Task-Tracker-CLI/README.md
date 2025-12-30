@@ -21,10 +21,10 @@ list, and track progress.
 
 ## ⚙️ Installation
 
-Clone the project and install dependencies:
+Clone the project:
 
 ``` bash
-pnpm install
+git clone https://github.com/eva003n/Node-projects.git
 ```
 
 Link the CLI globally (so you can run `task-cli` anywhere):
@@ -33,12 +33,18 @@ Link the CLI globally (so you can run `task-cli` anywhere):
 pnpm link
 ```
 
+
 > If PNPM complains about a bin folder, run:
 >
 > ``` bash
 > pnpm setup
 > ```
 
+Confirm setup was successfull, will output absolute path to directory
+
+```bash
+pnpm bin -g
+```
 ------------------------------------------------------------------------
 
 ## 🚀 Usage

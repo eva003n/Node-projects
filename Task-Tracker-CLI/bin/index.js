@@ -1,28 +1,24 @@
 #!/usr/bin/env node
 
-import commandTable from "./commands.js";
-import { showHelp } from "./handlers.js";
+import commandTable from "../src/commands.js";
+import { showHelp } from "../src/handlers.js";
 
-const dispatch = async (parsed) => {
+
+
+
+
+
+const tokenizer = (args) => {
   try {
-    // if the command doesnt exist show usage help
-    if (!commandTable.has(parsed.command)) {
-      // show help
-      return showHelp();
-    }
-
-    const hahdlerFunction = commandTable.get(parsed.command);
-
-    if (typeof hahdlerFunction === "function") {
-      await hahdlerFunction(parsed);
-    }
+    parseArguments(args.slice(2)); // node[0], index.js[1], ...[2]
   } catch (error) {
-    console.error(`Error executing command ${error.message}`);
+    console.error(`Error occurred during tokenization: ${error.message}`);
   }
 };
 
+
 // parse commands
-const parseArguments = async (tokens) => {
+const parseArguments = (tokens) => {
   if (!Array.isArray(tokens)) return showHelp();
   try {
     const commandArguments = {
@@ -31,7 +27,7 @@ const parseArguments = async (tokens) => {
       flags: {},
     };
 
-    const subArgs = tokens.slice(1); // create a new arry for subcommands
+    const subArgs = tokens.slice(1); // create a new array for subcommands
     // parse subcommands
     for (const subArg of subArgs) {
       // exclude flags
@@ -51,19 +47,31 @@ const parseArguments = async (tokens) => {
       }
     }
 
-    await dispatch(commandArguments);
+     dispatch(commandArguments);
   } catch (error) {
     console.error(`Error occured while parsing arguments ${error.message}`);
   }
 };
 
-// tokenize each command and store in array
-const tokenizer = async (args) => {
+const dispatch = async (parsed) => {
   try {
-    await parseArguments(args.slice(2)); // node[0], index.js[1], ...[2]
+    // if the command doesnt exist show usage help
+    if (!commandTable.has(parsed.command)) {
+      // show help
+      return showHelp();
+    }
+
+    const hahdlerFunction = commandTable.get(parsed.command);
+
+    if (typeof hahdlerFunction === "function") {
+      await hahdlerFunction(parsed);
+    }
   } catch (error) {
-    console.error(`Error occurred during tokenization: ${error.message}`);
+    console.error(`Error executing command ${error.message}`);
   }
 };
 
+
+// tokenize each command and store in array
 tokenizer(process.argv);
+
