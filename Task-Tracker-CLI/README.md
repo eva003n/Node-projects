@@ -1,4 +1,4 @@
-# Task CLI --- gitSimple Task Manager
+# Task CLI --- Simple Task Manager
 
 A lightweight command-line task manager built with Node.js (no external
 libraries).
