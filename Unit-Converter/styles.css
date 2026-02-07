@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  min-height: 100svb;
+}
+section {
+  max-width: 90%;
+  width: 20rem;
+  justify-content: center;
+}
+h2 {
+  margin-block: 1rem;
+}
+ul {
+  list-style: none;
+  display: flex;
+  gap: 2em;
+}
+
+a {
+  font-weight: bold;
+  position: relative;
+}
+.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  display: block;
+  background: black;
+}
+
+input {
+    padding: 8px 16px;
+    border-radius: 10px;
+}
+button {
+    padding: 7px 20px;
+    border-radius: 6px;
+}
+.grid {
+  --gap: 1rem;
+  display: grid;
+  gap: var(--gap);
+}

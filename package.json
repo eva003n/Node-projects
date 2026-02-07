@@ -1,0 +1,24 @@
+{
+  "name": "command-line-apps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.24.0",
+  "bin": {
+    "task-cli": "/Task-Tracker-CLI/bin/index.js",
+    "github-activity": "/Github-User-Activity/bin/index.js",
+    "expense-tracker": "/Expense-Tracker/bin/index.js",
+    "guess-number": "/NUmber-Guessing-Game/bin/index.js"
+  },
+  "dependencies": {
+    "ejs": "^4.0.1",
+    "express": "^5.2.1"
+  }
+}
