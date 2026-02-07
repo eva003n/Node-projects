@@ -9,7 +9,7 @@ const router = Router();
 router.use(protectRoute);
 
 router.route("/").get(getDashboardPage);
-router.route("/articles/new").get(createArticle);
+router.route("/articles/article/new").get(createArticle);
 router.route("/articles/:id/edit").get(editArticle);
 
 export default router;

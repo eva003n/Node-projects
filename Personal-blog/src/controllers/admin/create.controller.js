@@ -1,5 +1,5 @@
 function createArticle(req, res) {
-    res.send("Create Article page");
+    res.render("createarticle", {})
 
 }
 
