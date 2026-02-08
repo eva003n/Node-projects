@@ -1,6 +1,11 @@
-function homePage(req, res) {
+import { readArticleData } from "../../utils/index.js"
+
+async function homePage(req, res) {
+
     // display a list of articles published on the blog
-    res.send("Home page")
+
+    const articles = await readArticleData();
+    res.render("home", {articles})
 
 }
 

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "732c2bfb-113d-4a4a-8682-25ba09c6cf3d",
+    "title": "My first article",
+    "date": "February 9, 2026",
+    "content": "Browser: EJS supports all modern browsers, but is very likely to work even in very, very old browsers. Your mileage may vary."
+  },
+  {
+    "id": "73c2266c-a920-4dad-b2d8-b42b2db05c93",
+    "title": "My Second article",
+    "date": "February 9, 2026",
+    "content": "Browser: EJS supports all modern browsers, but is very likely to work even in very, very old browsers. Your mileage may vary."
+  }
+]

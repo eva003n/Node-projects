@@ -30,8 +30,9 @@ app.use("/", guestRouter);
 app.use("/admin", adminRouter )
 
 app.use("/{*splat}", (req, res) => {
-    res.send("<h1>Not found</h1>");
+    res.render("notfound");
 })
+
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });

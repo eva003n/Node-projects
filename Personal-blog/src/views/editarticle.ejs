@@ -7,21 +7,21 @@
     <title>Edit Article</title>
   </head>
   <body>
-    <form action="/admin/articles/article/new">
-      <div class="form-section">
+    <form action="/admin/articles/<%= id %>" method="post">
+       <div class="form-section">
         <label for="title">Title</label>
-        <input type="text" id="title"/>
+        <input type="text" id="title" name="title" value="<%= title %>"/>
       </div>
       <div class="form-section">
         <label for="data">Publishing data</label>
-        <input type="date" id="date" />
+        <input type="date" id="date" name="date" value="<%= date %>"/>
       </div>
       <div class="form-section">
         <label for="content">Content</label>
-        <textarea name="" id="content"></textarea>
+        <textarea name="content" id="content" ><%= content %></textarea>
       </div>
       <!-- <div class="form-section"> -->
-        <button type="submit">Publish</button>
+        <button type="submit">Update</button>
       <!-- </div> -->
     </form>
   </body>

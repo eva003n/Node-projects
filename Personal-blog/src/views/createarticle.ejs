@@ -11,18 +11,18 @@
 
   <section>
     <h2>Create article</h2>
-      <form action="/admin/articles/article/new">
+      <form action="/admin/articles/article/new" method="post">
       <div class="form-section">
         <label for="title">Title</label>
-        <input type="text" id="title"/>
+        <input type="text" id="title" name="title"/>
       </div>
       <div class="form-section">
         <label for="data">Publishing data</label>
-        <input type="date" id="date" />
+        <input type="date" id="date" name="date" />
       </div>
       <div class="form-section">
         <label for="content">Content</label>
-        <textarea name="" id="content"></textarea>
+        <textarea name="content" id="content" ></textarea>
       </div>
       <!-- <div class="form-section"> -->
         <button type="submit">Publish</button>
