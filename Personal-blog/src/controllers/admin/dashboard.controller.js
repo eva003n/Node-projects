@@ -1,5 +1,10 @@
-function getDashboardPage(req, res) {
-    res.send("Dashboard page");
+import { readArticleData } from "../../utils/index.js"
+
+async function getDashboardPage(req, res) {
+    const articles = await readArticleData();
+    
+    res.render("dashboard", {articles});
+    
 
 }
 

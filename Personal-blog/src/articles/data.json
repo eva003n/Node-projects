@@ -1,14 +1,1 @@
-[
-  {
-    "id": "732c2bfb-113d-4a4a-8682-25ba09c6cf3d",
-    "title": "My first article",
-    "date": "February 9, 2026",
-    "content": "Browser: EJS supports all modern browsers, but is very likely to work even in very, very old browsers. Your mileage may vary."
-  },
-  {
-    "id": "73c2266c-a920-4dad-b2d8-b42b2db05c93",
-    "title": "My Second article",
-    "date": "February 9, 2026",
-    "content": "Browser: EJS supports all modern browsers, but is very likely to work even in very, very old browsers. Your mileage may vary."
-  }
-]
+[{"id":"d6236edf-55a9-45ef-a372-dfb75ef1cbfe","title":"My first article","date":"February 16, 2026","content":"You can use any programming language to build the backend of the blog. You don't have to make it as an API for this project, we have other projects for that. You can have pages that render the HTML directly from the server and forms that submit data to the server."},{"id":"4f51a45a-a827-4157-80ca-b43531003acf","title":"My second article","date":"February 17, 2026","content":"You can use any programming language to build the backend of the blog. You don't have to make it as an API for this project, we have other projects for that. You can have pages that render the HTML directly from the server and forms that submit data to the server."}]

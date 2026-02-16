@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+
+    <title>Article | Admin</title>
+  </head>
+  <body>
+    <section>
+      <div style="display: flex; justify-content: space-between; align-items: center; font-weight: 700;">
+      <h2>Personal blog</h2>
+       <a href="http://localhost:8000/admin/articles/article/new">Add</a>
+      </div>
+
+      <ul class="articles">
+        <% 
+        articles.forEach(article => { %>
+
+              <li class="article">
+          <!-- Article title -->
+          <p class="article-title"><%= article.title %></p>
+
+          <div class="btns">
+            <a href="/admin/articles/<%= article.id %>/edit"> 
+                <button style="border: none; background: transparent; font-weight: 700; padding: 0">
+                    Edit
+                </button>
+            </a>
+       
+              <a href="http://localhost:8000/admin">
+                  <button
+                  style="border: none; background: transparent; font-weight: 700; padding: 0;"
+                onclick="deleteAeticle('<%= article.id %>')">
+                    Delete
+                </button>
+              </a>
+           
+          </div>
+        </li>
+       <% }) %>
+      
+      </ul>
+    </section>
+    <script>
+      function deleteAeticle(id) {
+         fetch(`http://localhost:8000/admin/articles/${id}`, {
+          method: "DELETE"
+         }).then((res) => res.text()).then(text => {
+          alert(text);
+          // rerender
+
+         }).catch(alert)
+        
+      }
+    </script>
+  </body>
+</html>
