@@ -1,5 +1,10 @@
 import express from "express";
 
+import path from "path";
+import { fileURLToPath } from "url";
+const __fileName = fileURLToPath(import.meta.url);
+const __dirName = path.dirname(__fileName);
+
 const app = express();
 
 // set ejs as the template engine
@@ -9,12 +14,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //serve static files
-app.use(express.static("public"));
+app.use(express.static(path.resolve(__dirName, "public")));
 
-import path from "path";
-import { fileURLToPath } from "url";
-const __fileName = fileURLToPath(import.meta.url);
-const __dirName = path.dirname(__fileName);
+
 
 // optional: specify views folder (default = ./views) but express does it automatically
 app.set("views", path.resolve(__dirName, "./views"));

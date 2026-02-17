@@ -11,7 +11,7 @@
       <h2>Personal blog</h2>
 
       <ul class="articles">
-        <% articles.forEach((article) => { %>
+        <% articles.forEach(function(article) { %>
            <li>
           <a href="/articles/<%= article.id %>" class="article">
             <!-- Article title -->

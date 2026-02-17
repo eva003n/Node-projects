@@ -32,7 +32,7 @@ async function createArticle(req, res) {
       id: randomUUID(),
       title,
       date: formatDate(date),
-      content,
+      content
     };
 
     articles.push(article);
