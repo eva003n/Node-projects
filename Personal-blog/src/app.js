@@ -24,9 +24,9 @@ app.set("views", path.resolve(__dirName, "./views"));
 import guestRouter from "./routes/guest.routes.js";
 import adminRouter from "./routes/admin.routes.js";
 
-// public rotes
+// public routes for guest
 app.use("/", guestRouter);
-// protected routes
+// protected routes for admin
 app.use("/admin", adminRouter);
 
 app.use("/{*splat}", (req, res) => {
