@@ -1,5 +1,5 @@
 # Node projects
-This are projects inpiired by the Developer roadmaps website
+This are projects inspired by the Developer roadmaps website
 
 [Projects Url](https://roadmap.sh/projects)
 
@@ -12,4 +12,4 @@ This are projects inpiired by the Developer roadmaps website
 
 ## Web applications
 - [Unit convertor](/Unit-Converter/README.md)
-- [Personal blog](/Personal-blog/src/README.md)
+- [Personal blog](/Personal-blog/README.md)
