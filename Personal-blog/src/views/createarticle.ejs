@@ -3,31 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/styles.css" />
 
     <title>Create Article</title>
   </head>
   <body>
+        <header style="display: flex; justify-content: space-evenly; padding: 1rem;">
+      <p style="font-weight: 700;">Personal blog</p>
 
-  <section>
-    <h2>Create article</h2>
+      <nav>
+        <ul style="display: flex; gap: 1rem;">
+          <li>
+            <a href="/">
+              Guest
+            </a>
+          </li>
+          <li>
+            <a href="/admin">
+            Admin
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- <section> -->
+    <section style="width: min(90%, 30rem)">
+      <h2>Create article</h2>
       <form action="/admin/articles/article/new" method="post">
-      <div class="form-section">
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title"/>
-      </div>
-      <div class="form-section">
-        <label for="data">Publishing data</label>
-        <input type="date" id="date" name="date" />
-      </div>
-      <div class="form-section">
-        <label for="content">Content</label>
-        <textarea name="content" id="content" ></textarea>
-      </div>
-      <!-- <div class="form-section"> -->
+        <div class="form-section">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" />
+        </div>
+        <div class="form-section">
+          <label for="data">Publishing data</label>
+          <input type="date" id="date" name="date" />
+        </div>
+        <div class="form-section">
+          <label for="content">Content</label>
+          <textarea name="content" id="content"></textarea>
+        </div>
+        <!-- <div class="form-section"> -->
         <button type="submit">Publish</button>
-      <!-- </div> -->
-    </form>
-  </section>
+        <!-- </div> -->
+      </form>
+    </section>
   </body>
 </html>

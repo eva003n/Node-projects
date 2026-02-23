@@ -1,7 +1,7 @@
-import { readArticleData } from "../../utils/index.js"
+import { readData } from "../../utils/index.js"
 
 async function getDashboardPage(req, res) {
-    const articles = await readArticleData();
+    const articles = await readData();
     
     res.render("dashboard", {articles});
     

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { getDashboardPage } from "../controllers/admin/dashboard.controller.js";
 
-import { protectRoute } from "../middlewares/auth.middleware.js";
+import { privateRoute, protectRoute } from "../middlewares/auth.middleware.js";
 import {
   deleteArticle,
   createArticle,
@@ -12,7 +12,7 @@ import {
 
 const router = Router();
 // protect this private routes with basic authentication
-router.use(protectRoute);
+router.use(privateRoute);
 
 router.route("/").get(getDashboardPage);
 router.route("/articles/article/new").get(createArticlePage);

@@ -1,4 +1,4 @@
-import { readArticleData, formatDate } from "../../utils/index.js"
+import { readData, formatDate } from "../../utils/index.js"
 import {writeFile} from "fs/promises"
 import { randomUUID } from "crypto";
 
@@ -19,7 +19,7 @@ async function createArticle(req, res) {
     const { title, date, content } = req.body;
 
     // check if article exist before creating to avoid duplicates
-    const articles = await readArticleData();
+    const articles = await readData();
 
     const isArticle = articles.find((article) => article.title === title);
 
@@ -50,7 +50,7 @@ async function editArticle(req, res) {
     const { title, date, content } = req.body;
 
     // check if article exist
-    const articles = await readArticleData();
+    const articles = await readData();
 
     const isArticle = articles.find((article) => article.title === title);
 
@@ -79,7 +79,7 @@ async function editArticle(req, res) {
 async function createArticleEditPage(req, res) {
   try {
     const id = req.params.id;
-    const articles = await readArticleData();
+    const articles = await readData();
 
     const article = articles.find((article) => {
       if (article.id === id) {
@@ -106,7 +106,7 @@ async function createArticleEditPage(req, res) {
 async function deleteArticle(req, res) {
     const id = req.params.id
     try {
-        const articles = await readArticleData();
+        const articles = await readData();
         const newArticles = articles.filter(article => article.id !== id )
 
         // wrute to file with new articles

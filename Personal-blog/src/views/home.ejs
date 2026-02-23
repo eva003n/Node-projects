@@ -7,17 +7,35 @@
     <title>Personal Blog | Home</title>
   </head>
   <body>
-    <section>
+        <header style="display: flex; justify-content: space-evenly; padding: 1rem;">
+      <p style="font-weight: 700;">Personal blog</p>
+
+      <nav>
+        <ul style="display: flex; gap: 1rem;">
+          <li>
+            <a href="/">
+              Guest
+            </a>
+          </li>
+          <li>
+            <a href="/admin">
+            Admin
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section style="width: min(90%,30rem);">
       <h2>Personal blog</h2>
 
       <ul class="articles">
         <% articles.forEach(function(article) { %>
            <li>
-          <a href="/articles/<%= article.id %>" class="article">
+          <a href="/articles/<%= article?.title %>" class="article">
             <!-- Article title -->
-            <p class="article-title"><%= article.title %></p>
+            <p class="article-title"><%= article?.title %></p>
             <!-- Publishing date -->
-            <p class="article-date"><%= article.date %></p>
+            <p class="article-date"><%= article?.date %></p>
           </a>
         </li>
         <% }) %>

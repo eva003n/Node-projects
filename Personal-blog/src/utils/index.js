@@ -31,12 +31,12 @@ function formatDate(date) {
   return `${months[month]} ${day}, ${year}`;
 }
 
-async function readArticleData() {
+async function readData(file) {
   try {
     // check if file exists first
-    await access(articlesFile);
+    await access(file || articlesFile);
 
-    const data = await readFile(articlesFile, { encoding: "utf-8" });
+    const data = await readFile(file || articlesFile, { encoding: "utf-8" });
 
     return data ? JSON.parse(data) : [];
   } catch (err) {
@@ -45,4 +45,10 @@ async function readArticleData() {
   }
 }
 
-export { formatDate, readArticleData };
+const getFilePath = (pathString) => {
+  const __fileName = fileURLToPath(import.meta.url);
+  const __dirName = path.dirname(__fileName);
+  const filePath = path.resolve(__dirName, pathString);
+  return filePath;
+};
+export { formatDate, readData, getFilePath };

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "8051ee4c-ab99-4c0b-b5d2-7de5602468a5",
+    "username": "evan21",
+    "role": "admin",
+    "password": "evan@2026"
+  },
+  {
+    "id": "393bbf43-53b9-46e7-bdc8-5f199cbb952d",
+    "username": "kenny21",
+    "role": "user",
+    "password": "evan@2026"
+  }
+]

@@ -8,11 +8,64 @@
     <title>Article</title>
 </head>
 <body>
-    <section>
-        <h2><%= title %></h2>
+        <header style="display: flex; justify-content: space-evenly; padding: 1rem;">
+      <p style="font-weight: 700;">Personal blog</p>
+
+      <nav>
+        <ul style="display: flex; gap: 1rem;">
+          <li>
+            <a href="/">
+              Guest
+            </a>
+          </li>
+          <li>
+            <a href="/admin">
+            Admin
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="article-section">
+       <div>
+         <h2><%= title %></h2>
         <p class="article-date" style="margin-block: 1rem;"><%= date %></p>
 
         <p><%= content%> </p>
+       </div>
+
+        <!-- commments  area-->
+         <div class="comments">
+                <p  style="font-size: 20px; font-weight: 700; margin-block: 4px;">Comments</p>
+
+            <!-- Comments  -->
+             <div class="comments-section">
+               <%
+               comments?.forEach(comment => {%>
+                 <div style="display: grid; gap: 1rem; background: #e7e6e6; border-radius: 20px; padding: 10px;">
+                    <div style="display: flex; gap: 1rem;">
+                    <!-- user profile -->
+                     <div style="width: 30px; aspect-ratio: 1; background: #eee; border-radius: 50%;"></div>
+                     <p>Henry kamau</p>
+                </div>
+                <p>
+                    <%= comment.content %>
+                </p>
+                </div>
+
+               <%})%>
+
+             </div>
+             <form action="/">
+                <textarea name="content" id="" placeholder="Add a comment ...">
+
+                </textarea>
+                <button type="submit">
+                    Send
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-horizontal-icon lucide-send-horizontal"><path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z"/><path d="M6 12h16"/></svg>
+                </button>
+             </form>
+         </div>
 
     </section>
     

@@ -1,12 +1,12 @@
-import { readArticleData } from "../../utils/index.js";
+import { readData } from "../../utils/index.js";
 
 async function articlePage(req, res) {
   // diplay info about an article
   try {
     const id = req.params.id;
-    const articles = await readArticleData();
+    const articles = await readData();
 
-    const article = articles.find((article) => article.id === id);
+    const article = articles.find((article) => article.title === id);
 
     // prevent rendering data that doesnt exists
     if (!article)

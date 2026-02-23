@@ -8,10 +8,29 @@
     <title>Article | Admin</title>
   </head>
   <body>
-    <section>
+    <header style="display: flex; justify-content: space-evenly; padding: 1rem;">
+      <p style="font-weight: 700;">Personal blog</p>
+
+      <nav>
+        <ul style="display: flex; gap: 1rem;">
+          <li>
+            <a href="/">
+              Guest
+            </a>
+          </li>
+          <li>
+            <a href="/admin">
+            Admin
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- <section> -->
+    <section style="width: min(90%,30rem);">
       <div style="display: flex; justify-content: space-between; align-items: center; font-weight: 700;">
       <h2>Personal blog</h2>
-       <a href="http://localhost:8000/admin/articles/article/new">Add</a>
+       <a href="http://localhost:8000/admin/articles/article/new">+ Add</a>
       </div>
 
       <ul class="articles">
@@ -20,10 +39,10 @@
 
               <li class="article">
           <!-- Article title -->
-          <p class="article-title"><%= article.title %></p>
+          <p class="article-title"><%= article?.title %></p>
 
           <div class="btns">
-            <a href="/admin/articles/<%= article.id %>/edit"> 
+            <a href="/admin/articles/<%= article?.id %>/edit"> 
                 <button style="border: none; background: transparent; font-weight: 700; padding: 0">
                     Edit
                 </button>
@@ -32,7 +51,7 @@
               <a href="http://localhost:8000/admin">
                   <button
                   style="border: none; background: transparent; font-weight: 700; padding: 0;"
-                onclick="deleteAeticle('<%= article.id %>')">
+                onclick="deleteAeticle('<%= article?.id %>')">
                     Delete
                 </button>
               </a>
