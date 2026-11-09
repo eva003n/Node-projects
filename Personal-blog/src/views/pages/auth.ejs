@@ -4,29 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <link rel="stylesheet" href="styles.css"> -->
-    <!-- <link rel="stylesheet" href="../styles.css" /> -->
+    <link rel="stylesheet" href="/css/styles.css" />
 
     <title>Authentication | <%= signUp ? "Sign up": "Sign in" %></title>
   </head>
   <body>
-        <header style="display: flex; justify-content: space-evenly; padding: 1rem;">
-      <p style="font-weight: 700;">Personal blog</p>
-
-      <nav>
-        <ul style="display: flex; gap: 1rem;">
-          <li>
-            <a href="/">
-              Guest
-            </a>
-          </li>
-          <li>
-            <a href="/admin">
-            Admin
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <header>
+    <%- include("../partials/header"); %>
+   </header>
     <section style="display: grid; gap: 1rem; place-content: center">
       <h2><%= signUp ? "Sign up": "Sign in" %></h2>
       <form
@@ -58,7 +43,7 @@
         <div  style="display: flex; ">
           <button
             type="submit"
-            style=" padding: 8px 16px; border-radius: 10px"
+            style=" width: 100%; padding: 8px 16px; border-radius: 10px"
           >
             <%= signUp ? "Sign up": "Sign in" %>
           </button>
@@ -70,6 +55,7 @@
           <%= signUp? "Already have an account " : "Dont have an account " %>
           <a
             href="<%= signUp? '/api/v1/auth/sign-in' : '/api/v1/auth/sign-up' %>"
+            style="color: blueviolet;"
           >
             <%= signUp ? "Sign in": "Sign up" %>
           </a>
@@ -78,5 +64,6 @@
 
     
     </section>
+    <script src="/js/index.js"></script>
   </body>
 </html>

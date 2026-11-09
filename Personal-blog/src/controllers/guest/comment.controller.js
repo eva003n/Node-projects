@@ -15,6 +15,7 @@ const createComment = async (req, res) => {
   const comment = {
     id: randomUUID(),
     content,
+    username: req.user.username,
     createdAt: new Date(),
     updatedAt: new Date(),
     replies: []
@@ -37,7 +38,7 @@ const createComment = async (req, res) => {
     await writeFile(articlesFile, JSON.stringify(modifiedArticles))
     res.status(201).json({message: "Commented successfully"})
   } catch (error) {
-    res.status(500).send(`<h1>${error.message}</h1>`);
+    res.status(500).json({ error: `${error.message}` });
 
   }
 };

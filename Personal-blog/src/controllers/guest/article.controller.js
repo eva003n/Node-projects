@@ -12,7 +12,7 @@ async function articlePage(req, res) {
     if (!article)
       return res.status(404).send("<h1>Article doesn't exists</h1>");
 
-    res.status(200).render("article", article);
+    res.status(200).render("pages/article", {article, user: req.session.userId});
   } catch (error) {
     res.status(500).send(`<h1>${error.message}</h1>`);
   }

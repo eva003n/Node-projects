@@ -9,6 +9,8 @@ const __dirName = path.dirname(__fileName);
 const app = express();
 
 // set ejs as the template engine
+// optional: specify views folder (default = ./views) but express does it automatically
+app.set("views", path.resolve(__dirName, "views"));
 app.set("view engine", "ejs");
 
 app.use(cookieParser())
@@ -29,28 +31,29 @@ app.use(
     resave: false,
     saveUninitialized: false,
     secret: "f6332400862435665343423235475853",
+    store: redisStore
   }),
 );
 
 
 
-// optional: specify views folder (default = ./views) but express does it automatically
-app.set("views", path.resolve(__dirName, "./views"));
+
 
 import guestRouter from "./routes/guest.routes.js";
 import adminRouter from "./routes/admin.routes.js";
 import commentRouter from "./routes/comment.routes.js"
 import authRouter from "./routes/auth.routes.js"
+import { redisStore } from "./config/redis.js";
 // public routes for guest
 app.use("/", guestRouter);
 app.use("/api/v1/auth", authRouter)
 // protected routes for admin
 app.use("/admin", adminRouter);
-app.use("/comment", commentRouter);
+app.use("/api/v1/comment", commentRouter);
 
 
 app.use("/{*splat}", (req, res) => {
-  res.render("notfound");
+  res.render("pages/notfound", {user: req.session.userId});
 });
 
 export {

@@ -72,17 +72,19 @@ const signOut = async (req, res) => {
 const signUpPage = async (req, res) => {
   const authData = {
     signUp: true,
+    user: req.session.userId,
   };
   // renders sign up page
-  res.render("auth", authData);
+  res.render("pages/auth", authData);
 };
 
 const signInPage = async (req, res) => {
   // renders sign in page
   const authData = {
     signUp: false,
+    user: req.session.userId
   };
   // renders sign up page
-  res.render("auth", authData);
+  res.render("pages/auth", authData);
 };
 export { signUp, signIn, signOut, signUpPage, signInPage };

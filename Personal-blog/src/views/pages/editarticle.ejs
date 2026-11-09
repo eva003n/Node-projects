@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Update Article</title>
+  </head>
+  <body>
+    <header><%- include("../partials/header"); %></header>
+    <!-- <section> -->
+    <section style="width: min(90%, 30rem)">
+      <h2>Create article</h2>
+
+      <form action="/admin/articles/<%= article.id %>" method="post">
+        <div class="form-section">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" value="<%= article.title %>" />
+        </div>
+        <div class="form-section">
+          <label for="data">Publishing data</label>
+          <input type="date" id="date" name="date" value="<%= article.date %>" />
+        </div>
+        <div class="form-section">
+          <label for="content">Content</label>
+          <textarea name="content" id="content"><%= article.content %></textarea>
+        </div>
+        <!-- <div class="form-section"> -->
+        <button type="submit">Update</button>
+        <!-- </div> -->
+      </form>
+    </section>
+    <script src="/js/index.js">
+
+    </script>
+  </body>
+</html>

@@ -66,6 +66,9 @@ button {
   font-weight: 700;
 
 }
+button:disabled {
+  /* cursor: not-allowed; */
+}
 
 ul {
   list-style: none;
@@ -115,7 +118,7 @@ a {
   display: grid;
   gap: 1rem;
   align-items: start ;
-  height: 80svh;
+  height: 60svh;
   overflow-y: auto;
   padding: 5px;
   

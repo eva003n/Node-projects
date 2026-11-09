@@ -1,5 +1,5 @@
-import { readData, formatDate } from "../../utils/index.js"
-import {writeFile} from "fs/promises"
+import { readData, formatDate } from "../../utils/index.js";
+import { writeFile } from "fs/promises";
 import { randomUUID } from "crypto";
 
 import path from "path";
@@ -9,9 +9,10 @@ const __fileName = fileURLToPath(import.meta.url);
 const __dirName = path.dirname(__fileName);
 const articlesFile = path.resolve(__dirName, "../../articles/data.json");
 
-
 function createArticlePage(req, res) {
-  res.render("createarticle", {});
+  console.log(req.session);
+
+  res.render("pages/createarticle", {user: req.session.userId});
 }
 
 async function createArticle(req, res) {
@@ -32,7 +33,7 @@ async function createArticle(req, res) {
       id: randomUUID(),
       title,
       date: formatDate(date),
-      content
+      content,
     };
 
     articles.push(article);
@@ -92,39 +93,31 @@ async function createArticleEditPage(req, res) {
     if (!article)
       return res.status(404).send("<h1>Article doesn't exists</h1>");
 
-    res.status(200).render("editarticle", article);
+    res.status(200).render("pages/editarticle", {article, user: req.session.userId});
   } catch (error) {
     res.status(500).send(`<h1>${error.message}</h1>`);
   }
 }
 
-
-
-
-
-
 async function deleteArticle(req, res) {
-    const id = req.params.id
-    try {
-        const articles = await readData();
-        const newArticles = articles.filter(article => article.id !== id )
+  const id = req.params.id;
+  try {
+    const articles = await readData();
+    const newArticles = articles.filter((article) => article.id !== id);
 
-        // wrute to file with new articles
-        await writeFile(articlesFile, JSON.stringify(newArticles))
+    // wrute to file with new articles
+    await writeFile(articlesFile, JSON.stringify(newArticles));
 
-        res.status(200).send( "Article deleted successfully")
-        
-
-    } catch (error) {
-        console.error(`Error deleting article: ${error.message}`)
-    }
-    
+    res.status(200).send("Article deleted successfully");
+  } catch (error) {
+    console.error(`Error deleting article: ${error.message}`);
+  }
 }
 
 export {
-createArticle,
-createArticlePage,
-    editArticle,
-    createArticleEditPage,
-    deleteArticle
-}
+  createArticle,
+  createArticlePage,
+  editArticle,
+  createArticleEditPage,
+  deleteArticle,
+};

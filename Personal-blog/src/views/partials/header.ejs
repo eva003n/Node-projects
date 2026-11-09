@@ -1,0 +1,31 @@
+     <header style="display: flex; justify-content: space-evenly; padding: 1rem;">
+      <p style="font-weight: 700;">Personal blog</p>
+
+      <nav style="display: flex; justify-content: center;">
+        <ul style="display: flex; gap: 3rem;">
+          <li>
+            <a href="/">
+              Guest
+            </a>
+          </li>
+          <li>
+            <a href="/admin">
+            Admin
+            </a>
+          </li>
+          <li>
+            <a href="/api/v1/auth/sign-up">
+            Sign up
+            </a>
+          </li>
+          <li>
+            <a href="/api/v1/auth/sign-in">
+                <button class="log-out" style="border: none; background: transparent; padding: 0;">
+                <%= user? "Sign out": "Sign in" %>
+                </button>
+            </a>
+          </li>
+        </ul>
+       
+      </nav>
+    </header>
